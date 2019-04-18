@@ -8,7 +8,7 @@
 
 		<link rel="stylesheet" href="css/reset.css">
 		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css">
+		<link rel="stylesheet" href="css/theme/glympse.css">
 
 		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" href="lib/css/monokai.css">
@@ -25,8 +25,155 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
+				<section data-background="assets/welcome.png">
+					<aside class="notes">
+						My name is Vanessa; I’m an engineer on the Glympse Cloud Services team, alias “services”. We develop all our new services in Go.
+						I like to use the microphone for accessibility purposes, but this isn’t highly formal. Feel free to get my attention to ask a question if something strikes you.
+						I’m going to:
+							- introduce our company at a high level: what we’re doing, a little history, and what’s next;
+							- I’ll intro myself and our team so you know whose living room this is :)
+							- talk briefly about why we use and love Go, and then I’ll play myself out.
+					</aside>
+				</section>
+				<section>
+					<h3>What is Glympse?</h3>
+					<iframe src="https://www.glympse.com" height="600" width="1000"></iframe> 
+					<aside class="notes">
+						Some of you likely traveled here via a ride-share service. The big ones (Lyft, Uber) deliver a solid, consistent, informative user experience. But what about other user experiences involving geospatial data? 
+					</aside>
+				</section>
+				<section>
+					<img src="assets/sky.jpg" class="fragment"></img>
+					<img src="assets/fedex.png" class="fragment"></img><br>
+					<img src="assets/aaa.jpg" class="fragment"></img>
+					<img src="assets/trugreen.png" class="fragment"></img>
+					<img src="assets/albertsons.jpg" class="fragment"></img>
+					<aside class="notes">
+						That's where we come in for partners like AAA. Field services such as lawn care, home appointments, cable or appliance installation. 
+						Delivery of furniture or other ground-tracked items. Curbside or in-store pickup of food, groceries, other shopping. 
+						Most of our partners have a non-tech core competency and don't want to lag behind the times and customer expectations.
+						Location sharing alleviates anxiety. And what kind of world is this that anyone waits for hours--
+						to have someone physically connect their cable, turn on and test their connection?
+						We enable a full end-to-end location-sharing experience (called a “Glympse”) with ETAs, notifications, messaging, triggered phase changes, webhooks, reporting, privacy, feedback. 
+						We have IVR integration, a web experience, and mobile apps for Android and iOS. Then we white-label Glympses for enterprise customers. 
+						The service is private, simple at its core, and customizable. 
+						We try not to extend too far into the realm of platform, but we do integrate with many existing service management solutions like Descartes, SFDC, Dynamics, Oracle Field Service Connector, etc.
+						Glympse services are also useful outside of the enterprise space: we support search-and-rescue by water or land and team coordination efforts
+						for wilderness rescue groups and the Cajun Navy. We offer full pro-bono support to organizations who use us for humanitarian purposes.
+						We leverage our SOA pretty extensively, have lots of distributed resources management, and use some great tools to get by with a small team.
+						Some of you might remember the early days of Glympse as a consumer app. We were the first temporary real-time location sharing app, before Find My Friends or Messenger or any similar app functionality existed. 
+						The consumer app is still out there, although our development focus has been enterprise for a couple years now. As I see it there's still one major advantage to using Glympse over FMF/Messenger etc:
+						Consumer privacy was then as now an emphasis of the consumer application. WE NEVER KEEP LOCATION DATA. IT’S THE WAY WE HAVE TECHNICALLY IMPLEMENTED OUR STACK. 
+						Check out our privacy policy!
+						Our Biz Dev/Customer Success teams are always uncovering new use cases and potential integrations for our product. We are driving development as needed.
+						Most of our partners are industry heavy-hitters; focus on Fortune 500.
+						We are actively moving toward having all our services standardized in Go; 
+						Rewriting our core "glympse" service that manages the glympse object's invites and metadata improved performance and sold leadership on the initiative.
+						Last year Zaq and I started hosting these fun voluntary R&D hacknights for producing POCs, working on pet projects, and fixing things that improve developer Quality of Life.
+						Our team has varied work styles but we all enjoy ownership and challenges.
+					</aside>
+				</section>
+				<section>
+					<h3><i>So, who are you people?</i></h3>
+						<img class="fragment" src="assets/align1.png" height="650" width="650"></img>
+						<aside class="notes">
+						So who am I? (pause, own the room)
+						Like some of you, I have a nontraditional path to software development. 
+						I grew up in rural southern Arizona and studied mathematics in college. 
+						At the time I was explicitly focused on abstracting my work *away* from the concrete and practical. 
+						I worked as a mathematics curriculum developer over at DigiPen before eventually landing in a data analyst role. 
+						Then an awesome Engineering Director liked my enthusiasm for investigating and repairing things no one wanted to touch, gave me access to all our repositories and encouraged me to investigate and fix bugs up and down our full stack.
+						I’ve been helping develop software for 3 years now and it’s been so much more fun than I could have imagined.
+
+						I thought for a while about how to describe our very cool team to you without getting too personal and telling anyone’s story for them. 
+						I like the solution I came up with; it has two parts:
+						**Alignment Matrix!**
+						For those of you unfamiliar with D&D, your axes here are moral and personal character behavior, from Good to Evil and Lawful to Chaotic. 
+						Good v Evil is a matter of respect for general well-being of others; to be neutral in this space is to operate only based on your existing relationships. 
+						Good desires to protect others, self-sacrificing, evil is entirely compassionless. 
+						Lawful v Chaotic is level of adherence to authority, rules, and reliability. 
+						Someone who is truly lawful operates by an unbreakable code; someone chaotic is happy to upend any slightly problematic system.
+						Our team is all lawful-to-chaotic and mostly good-to-neutral. 
+						Zaq is Chaotic Good. (“This 2-year-old code will handle load better with this redesign, do you agree? Cool, here’s a merge request with tests, forgone conclusion, I rewrote it.” “…”) He came to us from a software R&D role at TUNE. He’ll be speaking on a tool from The Lab shortly, and that’s all I’ll say to avoid stepping on it. But we think it’s pretty cool and useful. 
+						Leland is Lawful Good and worked in the same R&D group as Zaq (and Ian!) at TUNE. (Actual card-carrying Eagle Scout.) 
+						Alex is a True Neutral. (He does what is best for any given situation, evaluated case-by-case. Not self-serving or heavily sacrificial. Good judgement in law v chaos.)
+						Some Glympse folks might disagree with me placing Eli at Lawful Good and Cillian at Lawful Neutral. I’m basing this on a recent interaction where some of my admittedly broad AWS permissions were revoked and Eli said “sorry Vanessa, let us know if you run into any problems”, whereas Cillian was like “TAKE IT UP WITH SOC”.
+						Usually (unless you’re pretty cutthroat) you want your people at work to land from neutral to good, and have a strong balance between law and chaos. I think we’ve achieved that. Maybe we could handle the introduction of a bit more chaotic boldness but we at least know ourselves well.
+						So, maybe you don’t know D&D. Maybe you’ve played Team Fortress 2 or League of Legends or DOTA. But even if not, I believe this next analogy will still work for you in a literary sense.
+						</aside>
+				</section>
+				<section>
+					<h3><i>Alignment and Roles</i></h3>
+						<img src="assets/align2.png" height="650" width="650"></img>
+					<aside class="notes">
+						**Hero Roles!**
+						Leland is a pusher. He takes a piece of work and leads it through top to bottom, builds it all the way up and out. 
+						Alex is our senior engineer and our carry. He does the most, does it well, and the rest of Services just try to keep him healed and safe so he can win the sprint for us. 
+						Zaq is our scout/instigator/disabler. He’ll find the correct fight for us, start it, and locate all the landmines before we can get out to them. 
+						These two, our SRE heroes (Eli and Cillian) operate like a flamethrower and a soldier. Nothing can evade them.
+						I like to think of our frontend/native client team (Alex N, Nick, and Kate) as spies who run interference. They take the handoff from the safety of our servers to the wild west of whatever partners are doing.
+						My personal “hero” role is a flex durable tank and defense support. I’m all about the spells and healing. 
+						I like picking up bugs, handling weird one-off requests, pairing on large new services that need a lot of work, writing tech specs, keeping us making decisions as a team.
+						John is here, he’s our VP of Engineering. He’s curated this team; this idea was germinated by his discussion of us as puzzle pieces.
+						Chris, our CEO, is back there, and he cleared a path for us to get here as well.
+					</aside>
+				</section>
+				<section>
+					<h2>Why Go for us?</h2>
+					<p class="fragment">Small footprint</p><br>
+					<p class="fragment">Collaborative codebase</p><br>
+					<p class="fragment">Maximum readability and minimal overhead...</p>
+					<p class="fragment">...with just the right amount of control under the covers</p>
+					<aside class="notes">
+						I don’t imagine I have to sell any of you on Go being a fun language to write code in. 
+						For Glympse specifically, we need to scale quickly alongside new customers, who bring in new volumes of traffic.
+						We are productizing several new verticals right now. We’re a small team for the number of customers we support and for the size of our business impact. We try to keep our footprint low and respond rapidly to network traffic.
+						FOR EXAMPLE, Pickup Service (BOPIS solution) has managed goroutines for push notifications to available agents. Imagine how the profile of that would compare to attempting async push with python and pubsubs...
+						Maximized readability of code is great for teamwork.
+						We require a well-designed, well-understood services architecture. We also need to control our overhead and costs. Our APIs can be hit hundreds or thousands of times for a single Glympse.
+						This is where Go comes in for us: Maximum readability and minimal overhead, with just the right amount of control under the covers when we need it.
+						Keeping syntax and overhead to a minimum means fast and fun building. We design and spin up services for a POC during a hacknight. Our collaboration is constant and energizing.
+						Plus anyone who has worked with me knows I like typed languages; implicit conversions give me mild anxiety.
+						We are really happy to have you all here. Thanks for bearing with me; two addenda slides for you:
+					</aside>
+				</section>
+				<section>
+					<h3>Reasons to visit us again</h3>
+					<img src="assets/pwl.svg" height="270" width="600"><br>
+					<p class="fragment">Thursday May 2</p>
+					<br>
+					<div class="orgs">
+						<img class="fragment" src="assets/wsc.jpg" height="150" width="150">
+						<img class="fragment" src="assets/wids.png" height="140" width="420"> 
+						<img class="fragment" src="assets/codeday.jpg" height="150" width="150">
+					</div> 
+					<aside class="notes">
+						We are a venue for Papers We Love, we sponsor and host Write/Speak/Code, we are a meetup location for Women in Data Science, and we’ll be hosting the next CodeDay Seattle (May 26-27!)
+						We have a couple open reqs, including a Services Engineer III or Senior; that one would be for my team, and a Solutions Engineer for Customer Success. 
+						Talk to anyone whose Hero Role I mentioned and they’ll be happy to tell you more.
+						We also love to host tech events in this space, especially ones for Gophers, kindred nerds, and underrepresented groups. 
+						Shoutout to Grace, a software development student from Ada Developer Academy who works with me 1:1 during the week is here! 
+						Chat with her if you get a chance, she is awesome and super smart. 
+						If any of you are looking for volunteer opportunities in an educational or mentorship capacity, I always know of a few. 
+					</aside>
+				</section>
+				<section>
+					<h3>Keep in touch with us!</h3>
+					<p style="font-size:30px">
+						<img src="assets/gophercon.webp" height="150" width="150"></img>
+						<br>
+						<img src="assets/insta.png" height="70" width="70"></img> @teamglympse
+						<img src="assets/twitter.png" height="70" width="70"></img> @glympse
+						<img src="assets/linkedin.png" height="70" width="70"></img> Glympse
+					</p>
+					<aside class="notes">
+						Ways to connect:
+						Several of us, me and Zaq for sure, will be at GopherCon in SD. We’re always here in the office otherwise and we like visitors.
+						Find us on the socials: @Glympse, @teamglympse, etc (Twitter, Insta, LI, and so on)
+						Unofficial post-event HH upstairs @ Cloud Room..?
+						Grab a beer or some tacos while we get Zaq set up. Thanks for being here. :)
+					</aside>
+				</section>
 			</div>
 		</div>
 
